@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- launchd agent: keeps plainsight always running, restarts on crash, starts at login.
+     Install:   cp dev.local.plainsight.plist ~/Library/LaunchAgents/
+                launchctl load ~/Library/LaunchAgents/dev.local.plainsight.plist
+     Uninstall: launchctl unload ~/Library/LaunchAgents/dev.local.plainsight.plist -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>dev.local.plainsight</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/joeboylson/@/1_Projects/infra/plainsight/server.py</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/joeboylson/@/1_Projects/infra/plainsight/plainsight.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/joeboylson/@/1_Projects/infra/plainsight/plainsight.log</string>
+</dict>
+</plist>
